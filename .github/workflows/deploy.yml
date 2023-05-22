@@ -28,5 +28,5 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh git@github.com:Satyasheel1234/nodeserveremail.git "docker pull my-node-server:latest"
-          ssh git@github.com:Satyasheel1234/nodeserveremail.git "docker run -d -p 3000:3000 --name my-node-container my-node-server:latest"
+          ssh Satyasheel1234/nodeserveremail.git "docker pull my-node-server:latest"
+          ssh Satyasheel1234/nodeserveremail.git "docker run -d -p 3000:3000 --name my-node-container my-node-server:latest"
