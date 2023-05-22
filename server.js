@@ -1,51 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const nodemailer = require('nodemailer');
 
 const app = express();
-const port = 3000;
 
-// Middleware
-app.use(cors());
+// Middleware to parse incoming request bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Contact form route
+// Handle POST requests to the '/contact' endpoint
 app.post('/contact', (req, res) => {
   const { name, email, message } = req.body;
-
-  // Send email
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'satyasheel19@gmail.com',
-      pass: 'gsrkyjupbsfekffh'
-    }
-  });
-
-  const mailOptions = {
-    from: 'satyasheel19@gmail.com',
-    to: 'satyasheel19@gmail.com',
-    subject: 'New Contact Form Submission',
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
-    `
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.status(500).send('An error occurred while sending the email.');
-    } else {
-      console.log('Email sent:', info.response);
-      res.status(200).send('Email sent successfully.');
-    }
-  });
+  
+  // Perform any necessary processing or validation on the form data
+  
+  // Example response: sending a JSON response with a success message
+  res.json({ success: true, message: 'Thank you for your message!' });
 });
 
 // Start the server
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
