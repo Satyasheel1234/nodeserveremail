@@ -23,9 +23,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker image
-        run: docker push  satyasheel/nodejs-email:nodejs-email
+        run: docker push nodejs-email
 
       - name: Deploy to server
         run: |
-          ssh user@server-ip-address "docker pull satyasheel/nodejs-email:nodejs-email"
+          ssh user@server-ip-address "docker pull nodejs-email"
           ssh user@server-ip-address "docker run -d -p 3000:3000 --name my-node-container my-node-server:latest"
