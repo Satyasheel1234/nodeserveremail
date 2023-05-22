@@ -4,9 +4,10 @@
   "description": "nodejsemail",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npm run build && node lib/server.js",
+    "build": "./node_modules/babel-cli/bin/babel.js src --out-dir dist"
   },
-  "author": "satyasheel Shrivastava",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -14,5 +15,8 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemailer": "^6.9.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
