@@ -1,11 +1,6 @@
-name: Deploy Docker Image
-on:
-  push:
-    branches:
-      - master
-
+on: push
 jobs:
-build-container:
+  build-container:
   name: Build container
   runs-on: ubuntu-latest
     steps:
