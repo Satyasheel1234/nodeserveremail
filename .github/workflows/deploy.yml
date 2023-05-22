@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker image
-        run: docker push my-node-server/cool_zhukovsky
+        run: docker push my-node-server:cool_zhukovsky
 
 
       - name: Deploy to server
