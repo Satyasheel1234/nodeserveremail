@@ -1,4 +1,13 @@
 {
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "nodejsemail",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "satyasheel Shrivastava",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
